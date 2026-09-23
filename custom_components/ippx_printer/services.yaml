@@ -1,0 +1,57 @@
+print_file:
+  name: Print file
+  description: Prints a file on the printer.
+  target:
+    entity:
+      integration: ippx_printer
+      domain: sensor
+  fields:
+    file_path:
+      name: File path
+      description: Path to the file (must be shared in allowlist_external_dirs).
+      required: true
+      example: "/config/www/photo.jpg"
+      selector:
+        text:
+    document_format:
+      name: Document format
+      description: MIME type of the file (e.g. image/jpeg, application/pdf).
+      required: true
+      example: "image/jpeg"
+      selector:
+        text:
+    attributes:
+      name: Attributes
+      description: IPP job attributes as key-value pairs (e.g. media, sides, copies).
+      required: false
+      selector:
+        object:
+print_pdf:
+  name: Print PDF file
+  description: Prints a PDF file on the printer. If the printer does not support PDF, the pages are converted to JPEG format and printed. Note Double-sided printing is not possible in this case.
+  target:
+    entity:
+      integration: ippx_printer
+      domain: sensor
+  fields:
+    file_path:
+      name: File path
+      description: Path to the file (must be shared in allowlist_external_dirs).
+      required: true
+      example: "/config/www/document.pdf"
+      selector:
+        text:
+    attributes:
+      name: Attributes
+      description: IPP job attributes as key-value pairs (e.g. media, sides, copies).
+      required: false
+      selector:
+        object:
+get_capabilities:
+  name: Get printer capabilities
+  description: Returns the job-relevant capabilities (supported and default values) of the printer.
+  target:
+    entity:
+      integration: ippx_printer
+      domain: sensor
+      

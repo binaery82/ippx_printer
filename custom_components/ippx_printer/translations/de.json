@@ -1,0 +1,88 @@
+{
+  "title": "IPPx Drucker",
+  "config": {
+    "step": {
+      "confirm": {
+        "title": "🔎 Drucker gefunden",
+        "description": "Möchtest du {model} ({host}) einrichten?",
+        "data": {
+          "name": "Druckername:"
+        }
+      },
+      "user": {
+        "title": "🖨️ Drucker hinzufügen",
+        "description": "Gib eine Druckernamen, die IP-Adresse und den Port von Drucker ein.",
+        "data": {
+          "name": "Druckername:",
+          "host": "IP-Adresse:",
+          "port": "Drucker-Port:"
+        }
+      }
+    },
+    "error": {
+      "ip_required": "Bitte gib eine IP-Adresse ein.",
+      "invalid_ip": "Ungültige IP-Adresse. Bitte gib eine gültige IPv4-Adresse ein (z.B. 192.168.1.100).",
+      "cannot_connect": "Es konnte keine Verbindung zu Drucker hergestellt werden. Prüfen Sie die IP-Adresse und den Drucker-Port.",
+      "uuid_not_found": "Der Drucker liefert keine UUID. Bitte prüfen Sie ob der Drucker IPP fähig ist."
+    },
+    "abort": {
+      "already_configured": "✔️ Dieser Drucker ist bereits eingerichtet.",
+      "cannot_connect": "❌ Verbindung zum Drucker fehlgeschlagen.",
+      "uuid_not_found": "❌ Drucker liefert keine UUID."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "status": {
+        "name": "Status",
+        "state": {
+          "idle": "Leerlauf",
+          "printing": "Druckt",
+          "stopped": "Gestoppt",
+          "unknown": "Unbekannt"
+        }
+      },
+      "status_reasons": {
+        "name": "Status Meldungen"
+      }
+    }
+  },
+  "services": {
+    "print_file": {
+      "name": "Datei drucken",
+      "description": "Druckt eine Datei auf dem Drucker aus.",
+      "fields": {
+        "file_path": {
+          "name": "Dateipfad",
+          "description": "Pfad zur Datei (muss in allowlist_external_dirs enthalten sein)."
+        },
+        "document_format": {
+          "name": "Dokumentformat",
+          "description": "MIME-Typ der Datei (z. B. image/jpeg, application/pdf)."
+        },
+        "attributes": {
+          "name": "Attribute",
+          "description": "IPP-Job-Attribute als Schlüssel-Wert-Paare (z. B. media, sides, copies)."
+        }
+      }
+    },    
+    "print_pdf": {
+      "name": "PDF Datei drucken",
+      "description": "Druckt eine PDF-Datei auf dem Drucker aus. Wenn der Drucker kein PDF unterstützt, werden die Seiten in das JPEG-Format konvertiert und ausgedruckt. Hinweis: Beidseitiger Druck ist in diesem Fall nicht möglich.",
+      "fields": {
+        "file_path": {
+          "name": "Dateipfad",
+          "description": "Pfad zur Datei (muss in allowlist_external_dirs enthalten sein)."
+        },
+        "attributes": {
+          "name": "Attribute",
+          "description": "IPP-Job-Attribute als Schlüssel-Wert-Paare (z. B. media, sides, copies)."
+        }
+      }
+    },
+    "get_capabilities": {
+      "name": "Drucker-Fähigkeiten abrufen",
+      "description": "Liefert die job-relevanten Fähigkeiten (unterstützte und Standartwerte) des Druckers."
+    }   
+  }  
+}

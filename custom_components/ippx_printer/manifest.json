@@ -1,0 +1,19 @@
+{
+  "domain": "ippx_printer",
+  "name": "IPPx Printer",
+  "version": "0.1.0",
+  "config_flow": true,
+  "documentation": "https://github.com/binaery82/ippx_printer",
+  "issue_tracker": "https://github.com/binaery82/ippx_printer/issues",
+  "requirements": [
+    "ippx==0.1.1",
+    "pymupdf>=1.28.0"
+  ],
+  "zeroconf": [
+    {"type": "_ipp._tcp.local."},
+    {"type": "_ipps._tcp.local."}
+  ],
+  "dependencies": [],
+  "codeowners": ["@binaery82"],
+  "iot_class": "local_polling"
+}

@@ -1,0 +1,88 @@
+{
+  "title": "IPPx Printer",
+  "config": {
+    "step": {
+      "confirm": {
+        "title": "🔎 Printer found",
+        "description": "Do you want to set up {model} ({host})?",
+        "data": {
+          "name": "Printer name:"
+        }
+      },
+      "user": {
+        "title": "🖨️ Add printer",
+        "description": "Enter a printer name, the IP address and the port of the printer.",
+        "data": {
+          "name": "Printer name:",
+          "host": "IP address:",
+          "port": "Printer port:"
+        }
+      }
+    },
+    "error": {
+      "ip_required": "Please enter an IP address.",
+      "invalid_ip": "Invalid IP address. Please enter a valid IPv4 address (e.g. 192.168.1.100).",
+      "cannot_connect": "Could not connect to the printer. Check the IP address and port.",
+      "uuid_not_found": "The printer does not provide a UUID. Please check if the printer supports IPP."
+    },
+    "abort": {
+      "already_configured": "✔️ This printer is already configured.",
+      "cannot_connect": "❌ Connection to printer failed.",
+      "uuid_not_found": "❌ Printer does not provide a UUID."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "status": {
+        "name": "Status",
+        "state": {
+          "idle": "Idle",
+          "printing": "Printing",
+          "stopped": "Stopped",
+          "unknown": "Unknown"
+        }
+      },
+      "status_reasons": {
+        "name": "Status Reasons"
+      }
+    }
+  },
+  "services": {
+    "print_file": {
+      "name": "Print file",
+      "description": "Prints a file on the printer.",
+      "fields": {
+        "file_path": {
+          "name": "File path",
+          "description": "Path to the file (must be in allowlist_external_dirs)."
+        },
+        "document_format": {
+          "name": "Document format",
+          "description": "MIME type of the file (e.g. image/jpeg, application/pdf)."
+        },
+        "attributes": {
+          "name": "Attributes",
+          "description": "IPP job attributes as key-value pairs (e.g. media, sides, copies)."
+        }
+      }
+    },    
+    "print_pdf": {
+      "name": "Print PDF file",
+      "description": "Prints a PDF file on the printer. If the printer does not support PDF, the pages are converted to JPEG format and printed. Note Double-sided printing is not possible in this case.",
+      "fields": {
+        "file_path": {
+          "name": "File path",
+          "description": "Path to the file (must be in allowlist_external_dirs)."
+        },
+        "attributes": {
+          "name": "Attributes",
+          "description": "IPP job attributes as key-value pairs (e.g. media, sides, copies)."
+        }
+      }
+    },
+    "get_capabilities": {
+      "name": "Get printer capabilities",
+      "description": "Returns the job-relevant capabilities (supported and default values) of the printer."
+    }    
+  }
+}

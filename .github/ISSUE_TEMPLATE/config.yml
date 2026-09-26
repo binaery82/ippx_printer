@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Home Assistant Community
+    url: https://community.home-assistant.io/
+    about: Ask questions and get help from the community.
+  - name: Epson ET-4850 IPP Bug Report
+    url: https://github.com/binaery82/ippx_printer/blob/main/docs/epson_bug_report.md
+    about: Known IPP issues with the Epson ET-4850.
+    

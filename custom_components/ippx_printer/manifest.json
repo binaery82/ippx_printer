@@ -1,6 +1,7 @@
 {
   "domain": "ippx_printer",
   "name": "IPPx Printer",
+  "codeowners": ["@binaery82"],
   "config_flow": true,
   "dependencies": [],
   "documentation": "https://github.com/binaery82/ippx_printer",
@@ -14,6 +15,5 @@
   "zeroconf": [
     {"type": "_ipp._tcp.local."},
     {"type": "_ipps._tcp.local."}
-  ],
-  "codeowners": ["@binaery82"]
+  ]
 }

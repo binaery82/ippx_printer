@@ -11,7 +11,7 @@
     "ippx==0.1.1",
     "pymupdf>=1.28.0"
   ],
-  "version": "0.1.0",
+  "version": "0.1.1",
   "zeroconf": [
     {"type": "_ipp._tcp.local."},
     {"type": "_ipps._tcp.local."}
